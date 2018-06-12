@@ -33,18 +33,33 @@ gulp.task('serve', ['sass'], function(){
 
 });
 
-// Move fonts folder to src
-gulp.task('fonts', function(){
-    return gulp.src('node_modules/font-awesome/fonts/*')
-        pipe(gulp.dest("src/fonts"));
-});
 
-// Move font-awesome css to folder to src/css
-gulp.task('fa', function(){
-    return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
-    pipe(gulp.dest("src/css"));
-});
+// Move Fonts to src/fonts
+gulp.task('fonts', function() {
+  return gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest('src/fonts'))
+})
 
+// Move Font Awesome CSS to src/css
+gulp.task('fa', function() {
+  return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
+    .pipe(gulp.dest('src/css'))
+})
 
-// Default Gulp Task to run when we execute the gulp command
-gulp.task('default', ['sass', 'js', 'serve', 'fonts', 'fa']);
+gulp.task('default', ['js','serve', 'fa', 'fonts']);
+
+// // Move fonts folder to src
+// gulp.task('fonts', function(){
+//     return gulp.src('node_modules/font-awesome/fonts/*')
+//         pipe(gulp.dest("src/fonts"));
+// });
+//
+// // Move font-awesome css to folder to src/css
+// gulp.task('fa', function(){
+//     return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
+//     pipe(gulp.dest("src/css"));
+// });
+//
+//
+// // Default Gulp Task to run when we execute the gulp command
+// gulp.task('default', ['sass', 'js', 'serve', 'fonts', 'fa']);
